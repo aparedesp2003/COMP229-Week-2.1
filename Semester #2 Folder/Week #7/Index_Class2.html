@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+<title> Week #7 </title>
+<head>
+    <script>
+        // var Person = 
+        // {
+            //FIrst way to create a class
+            // name: "Andres",
+            // age: 19,
+            // country: "Venezuela",
+            // talk:function()
+            // {
+            //     return ("My name is " + this.name + "," + "I am " + this.age + " years old" + ", and" + "I am coming from " + this.country) 
+            // }};
+        //}
+
+            // function Person(name,age,country)
+            // {
+            //     this.name = name;
+            //     this.age = age;
+            //     this.country = country;
+            //     this.talk = function()
+            // {
+            //     return ("TALK: My name is " + this.name + ", " + "I am " + this.age + " years old" + ", and" + " I am coming from " + this.country);
+            // };}
+
+            // Person.prototype.say = function()
+            // {
+            //     return ("SAY: My name is: " + this.name + " and my age is " + this.age + ". I am coming from " + this.country)  
+            // }
+
+            // var student = 
+            // {
+            //     name: "Ricardo ",
+            //     age: 24 ,
+            //     ID: 12345
+            // };
+        
+            // function myFunction()
+            // {
+                // Person.age = 20;
+                // delete Person.name
+
+                // var student = new Person("Andres",19,"Venezuela")
+                // document.getElementById('demo').innerHTML= student.talk();
+                // document.getElementById('demo2').innerHTML= student.say();
+            
+
+        //     str = "Student Info: ";
+        //     for (var key in student)
+        //     {
+        //         str += " " + key + " :" + student[key] + ".";
+        //         document.getElementById("demo").innerHTML = str;
+        //     }
+        // }
+
+        function Person(name, age, country)
+             {
+                 var name = name;
+                 var age = age;
+                 var country = country;
+
+                 return{
+                    setName:function(newName){name = newName;},
+                    getName: function(){return name},
+                    setAge:function(newAge){age = newAge;},
+                    getAge: function(){return age},
+                    setCountry:function(newCountry){country = newCountry;},
+                    getCountry: function(){return country},
+                 };
+             }
+
+            var student = new Person("Andres", 19, "Venezuela");
+            student.setName("John");
+            window.alert(student.setName());
+            document.getElementById("demo").innerHTML = student.getName;
+
+    </script>
+</head>
+<body>
+   <button onclick = "myFunction()">Click Here</button>
+   <p id = "demo"></p>
+   <p id = "demo2"></p>
+
+</body>
+</html>

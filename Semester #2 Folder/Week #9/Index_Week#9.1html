@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<htm lang></lang>
+    <header>
+        <script>
+            // Example #1
+            // function myFunction(event)
+            // {
+            //     var n = event.timeStamp;
+            //     document.getElementById("demo").innerHTML = n;
+            // }
+
+            // Example #2
+            // function myFunction()
+            // {
+
+            // }
+
+            // Example #3
+            // function myFunction(event)
+            // {
+            //     let text = event.target.nodeName;
+            //     document.getElementById("demo").innerHTML = text;
+            // }
+
+            // Example #4
+            // function myFunction(event)
+            // {
+            //     let text = event.target.nodeName;
+            //     document.getElementById("demo").innerHTML = text;
+            // }
+
+            // window.addEventListener('contextMenu', function (e) {
+            //     document.body.innerHTML += '<p>Right-Click is disabled</p>'
+            //     e.preventDefault();
+            //     e.stopPropagation();
+            // }, false);
+
+            // Example #5
+            // document.onpointerdown = document.onpointerup = function(event)
+            // {
+            //     area.insertAdjacentHTML("beforeend", `<di>${event.type}</div>`)
+            // }
+
+            // Example #6
+            // document.onpointerdown = document.onpointerup = function(event)
+            // {
+            //     window.alert(event.type);
+            //     if (event.type == "pointerdown")
+            //     {
+            //         window.alert('mouseDown');
+            //     }
+            //     else if (event.type == 'pointerUp')
+            //     {
+            //         window.alert('mouseUp');
+            //     }
+            // }
+
+            // Example #7
+            // function myFunction()
+            // {
+            //     document.getElementById("demo").innerHTML = "You pressed a key inside the  field";
+            // }
+
+            //Example #8
+            // function myFunction()
+            // {
+            //     var x  =event.getModifierState("CapsLock");
+            //     if (x == true)
+            //     {
+
+            //     }
+            //     else 
+            //     {
+
+            //     }
+            //     document.getElementById("demo").innerHTML = "Caps Lock activated: " + x;
+            // }
+
+            //Example #9
+            function myFunction(event)
+            {
+                let key = event.code;
+                document.getElementById("demo").innerHTML = key;
+                let CharCode = event.CharCode;
+                document.getElementById("demo2").innerHTML = CharCode;
+                let charElm = String.fromCharCode(CharCode);
+                document.getElementById("demo3").innerHTML = charElm;
+            }
+        </script>
+    </header>
+    <body style = "text-align: center;">
+        <!-- Example #1 -->
+        <!-- <button onclick="myFunction(event)">Click Me!</button>
+        <P>Time since this document was loaded: <span id = "demo"></span></P> -->
+
+        <!-- Example #2 -->
+        <!-- <p>Press any key or click the mouse in this document to get that what type you pressed: </p>
+        <p>Event: <span id = "demo"></span></p> -->
+
+        <!-- Example #3 -->
+        <!-- <p>Press any key or click the mouse in this document to get that what type you pressed: </p>
+        <button onclick = "myFunction(event)">This is a button</button>
+        <input type = "text" onfocus = "myFunction(event)" placeholder="Please enter the number">
+        <p id = "demo"></p> -->
+
+        <!-- Example #4 -->
+        <!-- <p>Press any key or click the mouse in this document to get that what type you pressed: </p>
+        <button onclick = "myFunction(event)">This is a button</button>
+        <input type = "text" onfocus = "myFunction(event)" placeholder="Please enter the number">
+        <p id = "demo"> -->
+
+        <!-- Example #6 -->
+        <!-- <p id = "area">Hello, my name is Andres<br><br></p> -->
+
+        <!-- Example #7 -->
+        <!-- <p>Press a key in the input field: </p>
+        <input type = "text" onkeydown="myFunction()">
+        <p id = "demo"></p> -->
+
+        <!-- Example #8 -->
+        <!-- <h1>Is caps lock activated? </h1>
+        <input type = "text" size = "40" onkeydown="myFunction(event)">
+        <p><strong>Nothe: </strong>The getModifierState() method is not supported by safari</p>
+        <p id = "demo"></p> -->
+
+        <!-- Example #9 -->
+        <p>Press a keyboard in the input field: </p>
+        <input type = "text" size = "40" onkeypress="myFunction(event)">
+        <p>The code property returns the name of the key you pressed: </p>
+        <p id = "demo"></p>
+        <p id = "demo2"></p>
+        <p id = "demo3"></p>
+    </body>

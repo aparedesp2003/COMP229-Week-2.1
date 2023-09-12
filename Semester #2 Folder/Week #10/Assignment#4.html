@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment #4</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const boxSpace = document.querySelectorAll('.box');
+
+            let dragStartIndex;
+
+            boxSpace.forEach((box, index) => {
+                box.addEventListener('dragstart', dragStart);
+                box.addEventListener('dragenter', dragEnter);
+                box.addEventListener('dragover', dragOver);
+                box.addEventListener('drop', dragDrop);
+                box.setAttribute('draggable', true);
+                box.setAttribute('data-index', index);
+            });
+
+            function dragStart() {
+                dragStartIndex = +this.dataset.index;
+            }
+
+            function dragEnter(a) {
+                a.preventDefault();
+            }
+
+            function dragOver(a) {
+                a.preventDefault();
+            }
+
+            function dragDrop() {
+                const dragEndIndex = +this.dataset.index;
+                swapBoxes(dragStartIndex, dragEndIndex);
+            }
+
+            function swapBoxes(startIndex, endIndex) {
+                const container = document.querySelector('.container');
+                const boxSpace = document.querySelectorAll('.box');
+
+                const startBox = boxSpace[startIndex];
+                const endBox = boxSpace[endIndex];
+
+                container.insertBefore(endBox, startBox);
+            }
+        });
+    </script>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .box {
+            border: 3px solid #666;
+            background-color: #ddd;
+            border-radius: .5em;
+            padding: 10px;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div draggable="true" class="box">A</div>
+        <div draggable="true" class="box">B</div>
+        <div draggable="true" class="box">C</div>
+    </div>
+</body>
+</html>

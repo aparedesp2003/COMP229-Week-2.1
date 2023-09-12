@@ -1,0 +1,48 @@
+<<html>
+    <header>
+        <script>//Para poder usar script, podemos usar este metodo de escribir el codigo dentro del mismo archivo, 
+                //o tambien podemos crear uno aparte y llamarlo aqui.
+
+            //document.write("<h1>Hello Andres!</h1>");
+            //document.writeln("<H3>Welcome to our class!</H3>"); //Console.WriteLine(c#) = document.writeln(JavaScript)
+            //console.log("Hello"); //This just run at the background
+            //document.write("<H2>Hello Andres!</H2>");
+            function myFun()
+            {
+                //document.writeln("Hello <br>"); //br is to break the line.
+                //document.writeln("Welcome");
+                //let demoValue = document.getElementById("demo").innerHTML;//variale identidy use array, list, sequence, dictionary
+                //demoValue = demoValue+"<br> Hello Andres";
+                //demoValue += "<br> Hello Andres"; //This is another way to write the previous line, this will show to result.
+                //window.alert("We are going to welcome Andres"); //This will show an alert messag before going to the next page
+                //There are three types on window, prompt, alert and 
+                //document.getElementById("demo").innerHTML= demoValue;
+                //let txtValue = document.getElementById("txt").value;
+                //let inputValue = prompt("Input the value"); //This is to ask to user for the value
+                //window.alert(inputValue);
+                //document.getElementById("demo").innerHTML= txtValue;
+                //document.getElementById("demo").innerHTML= inputValue;
+                //document.getElementById("demo").value = inputValue;
+                //document.getElementById("txt").style.color = "Blue";
+                let boolValue = confirm("Are you okay?");
+                if (boolValue == true) //This is to ask to user for a value, and display a message according to that value.
+                {
+                    document.getElementById("demo").innerHTML = "You pressed OK";
+                }
+                else
+                {
+                    document.getElementById("demo").innerHTML= "You pressed cancel";
+                }
+            }
+        </script>
+
+    </header>
+<body>
+    <button onclick = "myFun()">Click Me</button>
+    <input id = "txt" type = "text" value = "Hello Andres Paredes"/>
+    <p id = "demo">Hello Everybody</p>
+    <!-- <input type = "text" placeholder="Input your name"/> We can comment something using ctrl+k+c and to uncomment is ctrl+k+u -->
+</body> 
+</html>
+
+

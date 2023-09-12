@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="En">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=IE-Edge>
+    <meta name = "viewport" content="width=device-width">
+    <title>Document Week 5.2</title>
+    <style>
+        
+    </style>
+    <script>
+        //This is how we use the mouseover function, this is to hover the text witht he color we choose
+        //This color will be display if the are above the text, if not it will be from the color of MouseOut
+        // function myFunctionMouseOver()
+        // {
+        //     document.getElementById("demo").style.color = "blue";
+        // }
+        // function myFunctionMouseOut()
+        // {
+        //     document.getElementById("demo").style.color = "gray";
+        // }
+        // This is another way to call function, to do this I dont have to call the function inside the P tag
+        // document.getElementById("demo").onmouseover = myFunctionMouseOver();
+        // document.getElementById("demo").onmouseout = myFunctionMouseOut();
+
+        // function myFunction1()
+        // {
+        //     window.alert("This message comes from one click on the message");
+        // }
+
+        // function myFunction2()
+        // {
+        //     window.alert("This message comes from two clics on the message")
+        // }
+
+        // This is to delete a message after x quantities of seconds
+        // The time should be on miliseconds, 1000miliseconds == 1 second
+
+        // function timerFunction()
+        // {
+        //     document.getElementById("demo").innerHTML = "After Changing";
+        // }
+
+        // var setMyTimer = setTimeout(timerFunction, 5000);
+
+        // function clearMyTimer()
+        // {
+        //     clearMyTimer(setMyTimer());
+        // }
+
+        //This is to create a interval for entering text each quantity of seconds
+        // const setMyInterval = setInterval(changePargText, 2000);
+
+        // function changePargText()
+        // {
+        //     var paragraph = document.getElementById("demo");
+        //     paragraph.innerHTML += "Entering a new Text <br> ";
+        // }
+
+        // function clearMyTimer()
+        // {
+        //     clearInterval(setMyInterval);
+        // }
+
+        // const setMyInterval = setInterval(changePargText, 2000);
+
+        // function changePargText()
+        // {
+        //     color = ["blue", "red", "green", "purple"];
+        //     var i = Math.floor(Math.random() * 6);
+        //     document.getElementById("demo").style.color = color[i];
+        // }
+
+        // function clearMyTimer()
+        // {
+        //     clearInterval(setMyInterval);
+        // }
+
+        function myNewFunction()
+        {
+            var newWindow = window.open("about: blank", "Hello, this is my new window", "width = 400 height = 300");
+            var newObject = document.createElement("input");
+            newObject.type = "text";
+            newObject.placeholder = "type here in a new window";
+            newWindow.document.body.appendChild(newObject);
+        }
+    </script>
+</head>
+
+<!--Event Handlers-->
+
+<body>
+    <!-- <p id = "demo" onmouseover="myFunctionMouseOver()" onmouseout="myFunctionMouseOut()">My testing page</p> -->
+    <!-- <p id = "demo" onmouseleave="myFunction1()" ondblclick="myFunction2()">My testing Page</p> -->
+    <!-- <p id = "demo">My testing page (Before cleaning)</p>
+    <button onclick="clearMyTimer()">Clear after 5 seconds</button> -->
+    <p id = "demo">My testing Page </p> 
+    <button onclick="myNewFunction()">Clear time interval</button>
+</body>
+</html>

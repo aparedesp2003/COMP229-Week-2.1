@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <script>
+            window.onload = function() 
+            {
+                defaultTable();
+            }
+            function defaultTable() 
+            {
+                let numberOfRows = 10;
+                let numberOfColumns = 10;
+
+                var result = "<table>";
+                for (var i = 1; i <= numberOfRows; i++)
+                {
+                    result += "<tr>";
+                        for (var a = 1; a <= numberOfColumns; a++)
+                        {
+                            result += " " + "<td>" + i + "X" + a + "=" + (i * a) + "</td>";
+                        }
+                        result += "</tr>";
+                }
+                result += "</table>";
+                document.getElementById("demo").innerHTML = result;
+            }
+
+            function generateTable()
+            {
+                var tableRows = document.getElementById("rows_").value;
+                tableRows = parseInt(tableRows);
+                var tableColumns = document.getElementById("columns_").value;
+                tableColumns = parseInt(tableColumns);
+
+                var value = "<table>";
+                for (var i = 1; i <= tableRows; i++)
+                {     
+                    value += "<tr>";
+                    for (var a = 1; a <= tableColumns; a++)
+                    {
+                        value += " " + "<td>" + i.toString() + "X" + a.toString() + "=" + (i.toString() * a.toString()) + "</td>";
+                    }
+                    value += "<br>";
+                    value += "</tr>";
+                }
+                value += "</table>";
+                document.getElementById("demo").innerHTML = value;
+            }
+        </script>
+    </head>
+    <body>
+        <style>
+            body {
+                background-color: lightgrey;
+            }
+            table, th, td {
+              border: 2px solid rgb(0, 0, 0);
+              padding: 10px;
+              border-radius: 8px;
+              text-align: center;
+              margin: auto;
+            }
+            table {
+                box-shadow: 3px 3px 3px 3px #070036;
+            }
+            h2 {
+                text-align: center;
+                text-decoration: underline;
+            }
+            h1 {
+                text-decoration: underline;
+            }
+            h3 {
+                text-align: center;
+            }
+            input {
+                box-shadow: 1px 1px 1px 1px #070036;
+            }
+            button {
+                box-shadow: 1px 1px 1px 1px #070036;
+                font-weight:bold;
+            }
+        </style>
+        <h1> Assignment 1 - Table </h1>
+        <input id = "rows_" type="text" placeholder=" Enter the number of rows "> <br>
+        <br>
+        <input id = "columns_" type="text" placeholder=" Enter the number of columns "><br>
+        <br>
+        <button onclick = "generateTable()"> Click here to draw a table </button>
+        <p><h2> Multiplication Table </h2></p>
+        <p id = "default"></p>
+        <p id = "demo"></p>
+        <p><h3>"Students: Andres Paredes, Bruna Silva, Carlos Rosario"</h3></p>
+    </body>
+</html>

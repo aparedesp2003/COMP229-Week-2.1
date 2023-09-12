@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang>
+    <head>
+        <script>
+            function myForm()
+            {
+                // var form1 =  document.forms("form1");
+                // window.alert(form1.name);
+
+                // var form1 = document.forms["form1"];
+                // var form1 = document.forms[1];
+
+                // var f1 = document.forms["form1"]["ftxt"].value;
+                // var e1 = document.forms[0][0].value;
+                // window.alert(e1);
+
+                // var f1 = document.forms[0];
+                // for ( var i = 0; i < f1.length; i++)
+                // {
+                //     window.alert(f1[i].value);
+                // }
+
+                // document.forms[1][0].value = document.form[0][0].value; This is the statement to send data from one form to another form
+            }
+
+            function myValiditeFunction()
+                {
+                    var emailTxt = document.forms[1].elements[3].value;
+                    var char = emailTxt.split('');
+                    if (char.includes('@'))
+                    {
+                        window.alert("Yes");
+                    }
+                    // else
+                    // {
+                    //     window.alert("No")
+                    // }
+                    else
+                    {
+                        document.getElementById("txtEmail").setAttribute
+                    }
+                }
+                function myCheckBoxFunction()
+                {
+                    var f4 = document.forms[3];
+                    for (var i = 0; i < f4.length; i++)
+                    {
+                        if(f4[i].checked == true)
+                        {
+                            window.alert(f4[i].value);
+                        }
+                    }
+                }
+        </script>
+    </head>
+    <body style = "text-align: center;">
+        <form id = "form1" name = "My first Form">
+            <input id ="ftxt" name = "ftxtf1" type = "text" placeholder="Enter your first name" required="required" value = "Hello"><br>
+            <br>
+            <input id ="stxt" name = "stxtf1" type = "text" placeholder="Enter your last name" required="required"><br>
+            <br>
+            <input id = "phone#" placeholder = "123-123-1234" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" required="required"><br>
+            <br>
+            <input id = "txtEmail" type = "text" placeholder="Enter your email" required="required">
+            <input id = "passwordText" type = "password" placeholder="Enter your password" required="required" pattern = [a-z]{3}[A-Z]{3}[[#$&Q_,.]{2}><br>
+            <br>
+            <input id = "fileField" type = "file"><br>
+            <br>
+            <datalist id = "myList">
+                <option value = "Toyota"></option>
+            </datalist>
+            <input type = "submit" value = "Complete Registration">
+            <input type = "reset" value = "Clear Form">
+
+        </form><br> <!--If I want to create more forms I have to repeat the previous step-->
+        <form id = "checkBoxOptions"> <!--If I want to change the options, to just select 1, I have to use radio type, and set an id for each option-->
+        <input name = "mySelection" type = "checkbox" value = "Windows 7">Windows 7<br>
+        <input name = "mySelection" type = "checkbox" value = "Windows 10">Windows 10<br>
+        <input name = "mySelection" type = "checkbox" value = "Windows 11">Windows 11<br>
+        <button type = "submit" onclick = "myCheckBoxFunction()">Submit options</button>
+        </form>
+        <button onclick="myValiditeFunction()">Click me</button>
+    </body>
+</html>

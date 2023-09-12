@@ -1,0 +1,89 @@
+<html>
+    <header>
+        <script>
+        
+        //var y = function(){document.getElementById("demo").innerHTML = "this come from delegate function";}; //This one wont run inside the loop
+            function myfunction()
+            {
+                // var value1 = document.getElementById("txt1").value;
+                // var value2 = document.getElementById("txt2").value;
+                // value1 = parseInt(value1);
+                // value2 = parseInt(value2);
+
+                // var result = "";
+
+                // for (var i = 0; i <= value1; i++)
+                // {
+                //     for (var a = 0; a <= value2; a++) //This is to create a table
+                //     {
+                //         result += " " + i.toString() + "X" + a.toString();
+                //     }
+                //     result += "<br>";
+                // }
+
+                // document.getElementById("demo").innerHTML = result;
+
+                // var myArray = [[1,2,3],[4,5,6],[7,8,9]]; //This is to create a table using arays
+                // var result = "";
+
+                // for ( var i = 0; i < myArray.length; i++)
+                // {
+                //     for (var a = 0; a < myArray[i].length; a++)
+                //     {
+                //         result += myArray[i][a].toString();
+                //     }
+                //     result += "<br>";
+                // }
+                //document.getElementById("demo").innerHTML = result;
+
+                // var result = "";
+                // var myArray = ['a','b','c','d'];
+                // myArray.forEach(item => result += ", " + item);
+
+                //document.getElementById("demo").innerHTML = result;
+
+                // var student = [
+                //     {name: "Andres", Id: 301297013, City: "Venezuela"},
+                //     {name: "Carlos", Id: 301297015, City: "Dominican Republic"},
+                //     {name: "Bruna", Id: 301297014, City: "Brazil"}
+                // ];
+
+                // var result = "";
+                // for (let element of student)
+                // {
+                //     for (key in element)
+                //     {
+                //         result += " " + element[key].toString();
+                //     }
+                //     result += "<br>";
+                // }
+                //document.getElementById("demo").innerHTML = result;
+
+                //var x = (function(){document.getElementById("demo").innerHTML = "this come from place-in function";})();
+                //y();
+
+                //Look for the difference between boolean values and boolean expressions
+                var x = isFinite(12.456);
+                var y = isNaN("1234");
+                var z = 13;
+                if (!y) //This is logicalNot
+                {
+                    window.alert("yes");
+                }
+                else
+                {
+                    window.alert("No");
+                }
+            }
+
+        </script>
+    </header>
+    <body>
+        <input id = "txt1" type="text" placeholder="Input an interger(1)"><br>
+        <br>
+        <input id = "txt2" type="text" placeholder="Input an interger(2)"><br>
+        <button onclick = "myfunction()">Draw the table</button>
+        <p id="demo"></p>
+        
+    </body>
+</html>

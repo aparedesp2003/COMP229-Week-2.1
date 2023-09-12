@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel = "icon" href="centennial.ico">
+    <head>
+    <title>Midterm Test</title>
+    <link rel="stylesheet" type= "text/css" href="styles.css">
+    <script defer src="Midterm#1.js"></script>
+        <script>
+            //The function of this method is to transfer the data from one form other one
+            function transferData(){
+                var billingAnddress = document.forms[0];
+                var deliveryAddress = document.forms[1];
+                
+                var form = ["txtFirstName","txtLastName","address","city","state","zip","phone#"];
+                var form2 = ["txtFirstName2","txtLastName2","address2","city2","state2","zip2","phone#2"];
+
+                for (var i = 0; i < form.length; i++)
+                {
+                    deliveryAddress.elements[form2[i]].value = billingAnddress.elements[form[i]].value
+                    
+                }
+            }
+
+            //This function is to validate the that the user enter the data into the fields
+            function validation() 
+            {
+                //We have to create an array to store all of the fields.
+                const inputValues = ["txtFirstName","txtLastName","address","city","state","zip","phone#", 
+                "txtFirstName2","txtLastName2","address2","city2","state2","zip2","phone#2"];
+
+                //This loop is to iterate each field of the array, and check for the validity on each field
+                for (let i = 0; inputValues.length; i++)
+                {
+                    const input = document.getElementById(inputValues[i]);
+                    if (input.checkValidity()){
+                        input.classList.remove('Invalid');
+                        input.classList.add('Valid');
+                    } else {
+                        input.classList.remove('Invalid');
+                        input.classList.add('Valid');
+                    }
+                }
+            }
+
+            //This customValidation method is provide a detailed message for each type of error
+            function customValidation() {
+
+                var isValid = true;
+
+                if (!document.getElementById("txtFirstName").checkValidity() || document.getElementById("txtFirstName").length < 2) {
+                    window.alert("Enter a valid first name");
+                    isValid = false;
+                }
+                if (!document.getElementById("txtLastName").checkValidity() || document.getElementById("txtLastName").length < 2) {
+                    window.alert("Enter a valid last name");
+                    isValid = false;
+                }
+                if (!document.getElementById("address").checkValidity() || document.getElementById("address").length < 2) {
+                    window.alert("Enter a valid street address");
+                    isValid = false;
+                }
+                if (!document.getElementById("city").checkValidity() || document.getElementById("city").length < 2) {
+                    window.alert("Enter a valid city name");
+                    isValid = false;
+                }
+                if (!document.getElementById("state").checkValidity() || document.getElementById("state").length < 2) {
+                    window.alert("Enter a valid state name");
+                    isValid = false;
+                }
+                if (!document.getElementById("zip").checkValidity() || document.getElementById("zip").length < 2) {
+                    window.alert("Enter a valid zip number");
+                    isValid = false;
+                }
+                if (!document.getElementById("phone#").checkValidity() || document.getElementById("phone#").length < 2) {
+                    window.alert("Enter a valid phone number");
+                    isValid = false;
+                }
+
+                if (!document.getElementById("txtFirstName2").checkValidity() || document.getElementById("txtFirstName").length < 2) {
+                    window.alert("Enter a valid first name");
+                    isValid = false;
+                }
+                if (!document.getElementById("txtLastName2").checkValidity() || document.getElementById("txtLastName").length < 2) {
+                    window.alert("Enter a valid last name");
+                    isValid = false;
+                }
+                if (!document.getElementById("address2").checkValidity() || document.getElementById("address").length < 2) {
+                    window.alert("Enter a valid street address");
+                    isValid = false;
+                }
+                if (!document.getElementById("city2").checkValidity() || document.getElementById("city").length < 2) {
+                    window.alert("Enter a valid city name");
+                    isValid = false;
+                }
+                if (!document.getElementById("state2").checkValidity() || document.getElementById("state").length < 2) {
+                    window.alert("Enter a valid state name");
+                    isValid = false;
+                }
+                if (!document.getElementById("zip2").checkValidity() || document.getElementById("zip").length < 2) {
+                    window.alert("Enter a valid zip number");
+                    isValid = false;
+                }
+                if (!document.getElementById("phone#2").checkValidity() || document.getElementById("phone#").length < 2) {
+                    window.alert("Enter a valid phone number");
+                    isValid = false;
+                } 
+
+                if (isValid) {
+                if (document.getElementById("form").checkValidity() && document.getElementById("form2").checkValidity()) {
+                window.alert("Your information has been successfully submitted!");
+                document.forms[0].reset();
+                document.forms[1].reset();
+                        }
+                    }
+                }
+
+                //Method to use the clar form button
+            function clearForm(){
+                document.getElementById("form").reset();
+                document.getElementById("form2").reset();
+            }
+
+            //Finally the selectIndexFunction is to provide an "none" value in the select box
+            function selectIndexFunction()
+            {
+                const select1 = document.getElementById("state");
+                const select2 = document.getElementById("state2");
+
+                select1.selectedIndex = -1;
+                select2.selectedIndex = -1;
+            }
+        </script>
+        <style>
+            body {
+                background-color: lightgrey;
+            }
+
+            h1 {
+                font-weight: bold;
+                text-align: center;
+                text-shadow: 5px 5px 5px rgb(0, 0, 0);
+            }
+            footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+            }
+            img {
+                margin-left: 200px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+            }
+            #info, label {
+                font-weight: bold;
+            }
+            input:Valid {
+                border-color: #09c372;
+            }
+
+            input:Invalid {
+                border-color: #ff3860;
+            }
+            fieldset {
+                border-radius: 10px;
+                box-shadow:  3px 3px 3px #070036;
+                width: 75%;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+
+            #container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #container button, #container input {
+                margin: 0 2px;
+                border-radius: 5px;
+            }    
+        </style>
+    </head>
+    <body onpageshow="selectIndexFunction()">
+        <h1> Enter you information here </h1>
+        <form id= "form" action = "/submit_form" method="post">
+        <fieldset>
+            <legend><h3>Billing Address</h3></legend>
+            <p id = "info">Please enter your billing address information</p>
+            <p class = "inputControl">
+                <label for = "txtFirstName">First Name: </label>
+                <input id = "txtFirstName" name = "txtFirstName" size = "20" type = "text" placeholder="Enter your first name" required = "required"><br>
+                <div id = "error"></div>
+            </p>
+            <p class = "inputControl">
+                <label for = "txtLastName">Last Name: </label>
+                <input id = "txtLastName" name = "txtLastName" size = "20" type = "text" placeholder="Enter your last name" required><br>
+                <div id = "error"></div>
+            </p>
+            <p class = "inputControl">
+                <label for = "address">Street Address: </label>
+                <input id = "address" name = "address" size = "20" type = "text" placeholder="Enter your address" required><br>
+                <div id = "error"></div>
+            </p>
+            <p class = "inputControl">
+                <label for = "city">City: </label>
+                <input id = "city" name = "city" size = "20" type = "text" placeholder="Enter your city" required><br>
+                <div id = "error"></div>
+            </p>
+            <p class = "inputControl">
+            <label for = "state">State: </label>
+                <select name="state" id="state">
+                    <option selected disabled>Select your state</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="BritishColumbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="NovaScotia">Nova Scotia</option>
+                    <option value="NewBrunswick">New Brunswick</option>
+                    <option value="NewFoundland">NewFoundland and Labrador</option>
+                    <option value="Northwest">Northwest Territories</option>
+                    <option value="PrinceEdward">Prince Edward Island</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Yukon">Yukon</option>
+                    <option value="AtlanticProvincies">Atlantic Provincies</option>
+                    <option value="Quebec">Quebec</option>
+                </select>
+                <div id = "error"></div>
+            </p>
+            <p class = "inputControl">
+                <label for = "zip">ZipCode: </label>
+                <input id = "zip" name = "zip" size = "20" type = "text" placeholder="000000" pattern="[0-9]{6}" required><br>
+                <div id = "error"></div>
+            </p>
+            <p class = "inputControl">
+                <label for = "phone#">Phone Number: </label>
+                <input id = "phone#" name = "phone#" size = "20" type = "text" placeholder="123-123-1234" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
+                <div id = "error"></div>
+            </p>
+        </fieldset>
+    </form>
+    <br>
+
+    <form id= "form2">
+        <fieldset>
+            <legend><h3>Delivery Address</h3></legend>
+            <p id = "OptionBox">
+                <input name = "OptionBox" onclick = "transferData()" type = "radio">Same as billing address<br>
+            </p>
+            <p class = "inputControl2">
+                <label for = "txtFirstName2">First Name: </label>
+                <input id = "txtFirstName2" name = "txtFirstName2" size = "20" type = "text" placeholder="Enter your first name" required><br>
+                <div id = "error2"></div>
+            </p>
+            <p class = "inputControl2">
+                <label for = "txtLastName2">Last Name: </label>
+                <input id = "txtLastName2" name = "txtLastName2" size = "20" type = "text" placeholder="Enter your last name" required><br>
+                <div id = "error2"></div>
+            </p>
+            <p class = "inputControl2">
+                <label for = "address2">Street Address: </label>
+                <input id = "address2" name = "address2" size = "20" type = "text" placeholder="Enter your address" required><br>
+                <div id = "error2"></div>
+            </p>
+            <p class = "inputControl2">
+                <label for = "city2">City: </label>
+                <input id = "city2" name = "city2" size = "20" type = "text" placeholder="Enter your city" required><br>
+                <div id = "error2"></div>
+            </p>
+            <p class = "inputControl2">
+            <label for = "state2">State: </label>
+                <select name="state2" id="state2">
+                    <option selected disabled>Select your state</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="BritishColumbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="NovaScotia">Nova Scotia</option>
+                    <option value="NewBrunswick">New Brunswick</option>
+                    <option value="NewFoundland">NewFoundland and Labrador</option>
+                    <option value="Northwest">Northwest Territories</option>
+                    <option value="PrinceEdward">Prince Edward Island</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Yukon">Yukon</option>
+                    <option value="AtlanticProvincies">Atlantic Provincies</option>
+                    <option value="Quebec">Quebec</option>
+                </select>
+                <div id = "error2"></div>
+            </p>
+            <p class = "inputControl2">
+                <label for = "zip2">ZipCode: </label>
+                <input id = "zip2" name = "zip2" size = "20" type = "text" placeholder="000000" pattern="[0-9]{6}" required><br>
+                <div id = "error2"></div>
+            </p>
+            <p class = "inputControl2">
+                <label for = "phone#2">Phone Number: </label>
+                <input id = "phone#2" name = "phone#2" size = "20" type = "text" placeholder="123-123-1234" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
+                <div id = "error2"></div>
+            </p>
+        </fieldset>
+    </form>
+    <br>
+    <p id = "container">
+		<button id = "btnsubmit" type="submit" onclick = "customValidation()">Submit Form</button>
+		<input id ="btnReset" type="reset" onclick="clearForm()" value="Clear Form">
+	</p>
+    </body>
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <img src = "CentennialCollege.png" height="75" width="300">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="copyright">&copy; Copyright - Andres Paredes - 301297013 - COMP125 Client Side Web Development - Summer 2023 </p>
+                </td>
+            </tr>
+        </table>
+    </footer>
+</html>

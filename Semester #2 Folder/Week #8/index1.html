@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <script>
+function myFunction()
+{
+const url = new URL('https://stackabuse.com/search?fname=John&q=node&page=2&email=example@hotmail.com');
+const searchParams = url.searchParams;
+searchParams.get('q'); // 'node'
+searchParams.get('page'); // '2'
+searchParams.get('email'); // example@hotmail.com
+document.getElementById("demo").innerHTML=searchParams.get('fname');
+}
+
+</script>
+</header>
+<body>
+    <button onclick="myFunction()">Click Me</button>
+    <p id="demo"></p> 
+</body>
+</html>

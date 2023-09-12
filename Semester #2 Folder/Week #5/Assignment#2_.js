@@ -1,0 +1,150 @@
+let titleboxTitle = "7 Wonders around the world";
+let imgFiles = ["../Assignment%232/ChichenItza.png", "../Assignment%232/coliseoRomano.jpg", "../Assignment%232/cristoRedentor.jpg", "../Assignment%232/machuPichu.jpg", 
+"../Assignment%232/murallaChina.jpeg", "../Assignment%232/petra.jpg", "../Assignment%232/tajMahal.jpg"];
+
+let imgCaptions = new Array(7);
+imgCaptions[0] = "Chichen Itza";
+imgCaptions[1] = "Colosseum";
+imgCaptions[2] = "Christ the Redeemer";
+imgCaptions[3] = "Machu Picchu";
+imgCaptions[4] = "Great Wall of China";
+imgCaptions[5] = "Petra";
+imgCaptions[6] = "Taj Mahal";
+
+let imgCount = imgFiles.length;
+
+//Calling the function
+window.addEventListener("load", createTitlebox);
+
+function createTitlebox()
+{
+    let titleBox = document.getElementById("titlebox");
+    let lbTitle = document.createElement("h1");
+    let lbCounter = document.createElement("div");
+    let lbPrev = document.createElement("div");
+    let lbNext = document.createElement("div");
+    let lbImages = document.createElement("div");
+    
+    //Title of the heading
+    titleBox.appendChild(lbTitle);
+    lbTitle.id = "lbTitle";
+    lbTitle.textContent = titleboxTitle;
+    
+    //Counter of images
+    titleBox.appendChild(lbCounter);
+    lbCounter.id = "lbCounter";
+    let currentImg = 1;
+    lbCounter.textContent = currentImg + " / " + imgCount;
+    
+    //Previous Buttoms
+    titleBox.appendChild(lbPrev);
+    lbPrev.id = "lbPrev";
+    lbPrev.innerHTML = "&#9664;";
+    lbPrev.onclick = showPrev;
+
+    //Next Buttoms
+    titleBox.appendChild(lbNext);
+    lbNext.id = "lbNext";
+    lbNext.innerHTML = "&#9654;";
+    lbNext.onclick = showNext;
+         
+    //Box containing the slide images
+    titleBox.appendChild(lbImages);
+    lbImages.id = "lbImages";
+
+    
+    for (let i = 0; i < imgCount; i++)
+    {
+        let image = document.createElement("img");
+        image.src = imgFiles[i];
+        image.alt = imgCaptions[i];
+        lbImages.appendChild(image);
+        image.style.width = "300px";
+        image.style.height = "200px";
+        image.style.marginRight = "10px";
+        image.style.marginBottom = "10px";
+        image.style.borderRadius = "10px";
+        image.addEventListener('click', function()
+            {
+                let newWindow = window.open("", "win", "width=1000, height=800");
+                newWindow.document.write('<html><head><title>New Window</title></head><body>');
+                newWindow.document.write('<div style="text-align: center;">');
+                newWindow.document.write('<img src="' + imgFiles[i] + '" width="800" height="600" style="border-radius: 10px;">');
+                newWindow.document.write('<br><p style="font-size: 25px; font-weight: bold;">' + imgCaptions[i] + '</p>');
+                newWindow.document.write('<a onclick="window.close()" style="display: inline-block; margin-top: 10px; font-size: 20px; font-weight: bold;">Close window</a>');
+                newWindow.document.write('<br><a onclick="window.opener.addToFavorites(\'' + imgFiles[i] + '\')" style="display: inline-block; font-size: 20px; font-weight: bold;">Add to favorites</a>');
+                newWindow.document.write('</div>');
+                newWindow.document.write('</body></html>');
+                newWindow.document.close();
+            }
+        );
+    }
+    
+    //This is to move to the next image
+    function showNext()
+    {
+        lbImages.appendChild(lbImages.firstElementChild);
+        (currentImg < imgCount) ? currentImg++ : currentImg = 1;
+        lbCounter.textContent = currentImg + " / " + imgCount;
+    }
+
+    function showPrev()
+    {
+        lbImages.insertBefore(lbImages.lastElementChild, lbImages.firstElementChild);
+        (currentImg > 1) ? currentImg-- : currentImg = imgCount;
+        lbCounter.textContent = currentImg + " / " + imgCount;
+    }
+
+    function createButton(listItem)
+    {
+        var button = document.createElement("button");
+        button.textContent = "Delete";
+
+        //Add an event listener to the button
+
+        button.addEventListener("click", function()
+        {
+            document.getElementById("Favorites").removeChild(listItem);
+        });
+
+        //Find the div with the id "buttonDiv"
+        var buttonDiv = document.getElementById("buttonDiv");
+        
+        //Append the button to the div
+
+        buttonDiv.appendChild(button);   
+    }
+
+    window.addToFavorites = function(imageSrc)
+    {
+        let favoritesList = document.getElementById("Favorites");
+        if (favoritesList.childElementCount > 5) 
+        {
+            alert("You can only add up to 5 images to your favorites.");
+            return;
+        }
+        let listItem = document.createElement("div");
+        let image = document.createElement("img");
+        image.src = imageSrc;
+        image.style.width = "300px";
+        image.style.height = "200px";
+        image.style.float = "left";
+        image.style.margin = "10px";
+        image.style.borderRadius = "10px";
+
+        image.onclick = function()
+        {
+            createButton(listItem);
+        };
+
+        listItem.appendChild(image);
+        favoritesList.appendChild(listItem);
+
+        window.opener.close();
+    }  
+ }
+
+ window.onload = function()
+ {
+    createTitlebox();
+ }

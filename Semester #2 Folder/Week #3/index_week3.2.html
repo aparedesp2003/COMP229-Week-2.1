@@ -1,0 +1,160 @@
+<html>
+    <header>
+        <script>
+        function myFunction()
+        {
+            // var newText = document.createElement("p");
+            // newText.innerHTML = "This is the new paragraph";
+            // newText.style.color = "red";
+            // document.body.appendChild(newText);
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str2.split("e");
+
+            // document.getElementById("demo").innerHTML = result;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str2.split("e");
+            // for (var item in result)
+            // {
+            //     window.alert(result[item]);
+            // }
+            // document.getElementById("demo").innerHTML = result;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str1.concat(" ", str2);
+
+            // document.getElementById("demo").innerHTML = result;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str1.lastIndexOf("e");
+
+            // document.getElementById("demo").innerHTML = result;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str1.concat(" ", str2);
+            // var indexOfE = result.lastIndexOf("e");
+
+            // document.getElementById("demo").innerHTML = indexOfE;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str2.substring(3, 14); //This is ot print the word between that range
+
+            // document.getElementById("demo").innerHTML = result;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str1.toUpperCase();
+
+            // document.getElementById("demo").innerHTML = result;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // result = str2.trim();
+
+            // document.getElementById("demo").innerHTML = result;
+
+            // var str1 = "You are welcome";
+            // var str2 = "at client-side web development Course"
+
+            // var result = "";
+            // String.prototype.reverse = function()
+            // {
+            //     var rev = " ";
+            //     for(var i = this.length-1; i >= 0; i--)
+            //     {
+            //         rev += this[i];
+            //         //var += this.replace(" ", "$");
+            //     }
+            //     return rev;
+            // };
+            // result = str1.reverse();
+            // document.getElementById("demo").innerHTML = result;
+
+
+            //MATH CLASSES
+            // var number1 = 30;
+            // var number2 = 40;
+
+            // var result = " ";
+            // result = Math.min(number1, number2);
+
+            // document.getElementById("demo").innerHTML = result;
+
+            // var number1 = 30;
+            // var number2 = 40;
+            // var result = " ";
+            // result = Math.pow(2, 3);
+            // document.getElementById("demo").innerHTML = result;
+
+            // var number1 = 30;
+            // var number2 = 40;
+            // var result = " ";
+
+            // result = Math.sqrt(9);
+            // document.getElementById("demo").innerHTML = result;
+
+            // var number1 = 30;
+            // var number2 = 40;
+            // var result = " ";
+
+            // result = Math.floor(result);
+            // result = Math.ceil(result);
+            // document.getElementById("demo").innerHTML = result;
+
+            // var number1 = 30;
+            // var number2 = 40;
+            // var result = " ";
+
+            // result = Math.random();
+            // document.getElementById("demo").innerHTML = result;
+
+            // var number1 = 30;
+            // var number2 = 40;
+            // var result = " ";
+
+            // result = Math.random() * (30 - 10 + 1) + 10; //This is how er define a random range
+            // document.getElementById("demo").innerHTML = result;
+
+            var number1 = 30;
+            var number2 = 40;
+            var arrayColors = ["blue", "red", "green", "black", "purple"];
+            var len = arrayColors.length;
+            var randomIndex = Math.random() * len;
+            randomIndex = Math.floor(randomIndex);
+
+            document.getElementById("demo").style.color = arrayColors[randomIndex]; //This is to change the color of the string each time we click the button
+
+
+
+            
+        }
+        </script>
+    </header>
+    <body>
+    <button onclick="myFunction()">Click me</button>
+    <p id = "demo">This is the old paragraph</p>
+</body> 
+</html>

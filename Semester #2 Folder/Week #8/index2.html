@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+<script>
+function myFunction()
+{
+// Check browser support
+if (typeof(Storage) !== "undefined") 
+{
+    // Store
+    sessionStorage.setItem("lastname","Smith");
+    //window.alert("The browser support");
+   //localStorage.setItem("lastname", "Smith");
+   // Retrieve
+   document.getElementById("demo").innerHTML = sessionStorage.getItem("lastname");
+  } 
+  else 
+  {
+   document.getElementById("demo").innerHTML = "Sorry, your browser does not support Web Storage...";
+  }
+}
+</script>
+</header>
+<body>
+    <button onclick="myFunction()">Click Me</button>
+    <p id="demo"></p>
+</body>
+</html>

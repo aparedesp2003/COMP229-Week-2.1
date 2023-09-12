@@ -1,0 +1,143 @@
+<html>
+    <header>
+        <script>
+            function myFun()
+            {
+                //document.getElementById("demo").innerHTML = "Hello Again";
+                //document.getElementById("demo").style.color = "dark blue"; //Color to the message
+                //window.alert("Hello this is my program"); //TO display a banner messgae
+                //var value = prompt("Input you grade please!"); //Asking to the user to enter his info
+                //document.getElementById("demo").innerHTML = value;
+                //var value = confirm("Are you sure?"); //This is to make the user to choose one option.
+
+                //if (value >= 90)
+                //{
+                //    window.alert("You got an A+ on the test");
+                //}
+                //else if (value >= 80 && value < 90)
+                //{
+                //    window.alert("You got an A on the test");
+                //}
+                //else if (value >= 75 && value < 80)
+                //{
+                //    window.alert("You got a B+ on the test");
+                //}
+                //else if (value >= 70 && value < 75)
+                //{
+                //    window.alert("You got a B on the test");
+                //}
+                //else if (value >= 60 && value < 70)
+                //{
+                //    window.alert("You got an C on the test");
+                //}
+                //else if (value >= 50 && value < 60)
+                //{
+                //    window.alert("You got an D on the test");
+                //}
+                //else 
+                //{
+                //    window.alert("You failed the test. Sorry!");   
+                //}
+                
+                // switch (value)
+                // {
+                //     case "90":
+                //         window.alert("You got an A+ on the test");
+                //     break;
+                //     case "80":
+                //         window.alert("You got an A on the test");
+                //     break;
+                //     case "70":
+                //         window.alert("You got a B on the test");
+                //     break;
+                //     case "60":
+                //         window.alert("You got an C on the test");
+                //     break;
+                //     case "50":
+                //         window.alert("You got an D on the test");
+                //     break;
+                //     default:
+                //         window.alert("You failed the test. Sorry!"); 
+                //     break;
+                // }
+
+                var value = "";
+                for (var a = 1; a < 5; a++)
+                {
+                    value += "Hello Again<br>";
+                }
+                document.getElementById("demo").innerHTML = value;
+
+                // var value = "";
+                // for (var a = 1; a < 21; a++)
+                // {
+                //     if (a % 2 == 0)
+                //     {
+                //         value +="<h2>" + a + "= Hello </h2><br>"; 
+                //     }
+                //     else if (a % 3 == 0)
+                //     {
+                //         value += "<h4>" + a + "= Hello </h4><br>";
+                //     }
+                // }
+                // document.getElementById("demo").innerHTML = value;
+                
+                //  var startLoop = document.getElementById("txt1").value;
+                //  startLoop = parseInt(startLoop);
+                //  var endLoop = document.getElementById("txt2").value;
+                //  endLoop = parseInt(endLoop);
+                //  var value = "";
+
+                // for (var i = startLoop; i < endLoop; i++)
+                // {
+                //     if (i % 2 == 0)
+                //     {
+                //         value +="<h2>" + i + "= Hello </h2><br>"; 
+                //      }
+                //      else if (i % 3 == 0)
+                //      {
+                //          value += "<h4>" + i + "= Hello </h4><br>";
+                //      }
+                // }
+                // document.getElementById("demo").innerHTML = value;
+
+                // var startLoop = document.getElementById("txt1").value;
+                // startLoop = parseInt(startLoop);
+                // var endLoop = document.getElementById("txt2").value;
+                // endLoop = parseInt(endLoop);
+                // var i = startLoop;
+                // var value = "";
+                // while (i < endLoop)
+                // {
+                //     if (i % 2 == 0)
+                //     {
+                //         value += "<h2>" + i + "= Hello</h2><br>";
+                //     }
+                //     else if (i % 3 == 0)
+                //     {
+                //         value += "<h4>" + i + "= Hello </h4><br>";
+                //     }
+                //     i++;
+                // }
+                // document.getElementById("demo").innerHTML = value;
+
+
+                // var i = 10;
+                // var str = "";
+                // // do
+                // // {
+                // //     str += "Hello Everybody <br>";
+                // //     i--;
+                // // } while (i >= 1)
+                
+                // document.getElementById("demo").innerHTML = str;
+            }
+            </script>
+            </header>
+            <body>
+                <input type = "text" id = "txt1" placeholder="Input start loop point"><br>
+                <input type = "text" id = "txt2" placeholder="Input end loop point"><br>
+                <button onclick= "myFun()">Click me</button>
+                <p id = "demo">My first program</p>
+            </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="En">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=IE-Edge>
+    <meta name = "viewport" content="width=device-width">
+    <title>Document Week 5.1</title>
+    <style>
+        
+    </style>
+    <script>
+        function MyList()
+        {
+            // var menu = document.getElementById("myList").firstChild.innerHTML;
+            // document.getElementById("demo").innerHTML = menu;
+
+            // var menu = document.getElementById("myList").lastElementChild.innerHTML;
+            // document.getElementById("demo").innerHTML = menu;
+
+            // var menu = document.getElementById("item2").nextSibling.innerHTML; //This prints the item to their side
+            // document.getElementById("demo").innerHTML = menu;
+
+            // var menu = document.getElementById("item2").parentNode.id; //This show the name of the list
+            // document.getElementById("demo").innerHTML = menu;
+
+            // var menu = document.getElementById("item2").parentElement.id;
+            // document.getElementById("demo").innerHTML = menu;
+
+            var carList = document.getElementById("myList").childNodes;
+
+            // for (var i = 0; i < carList.length; i++)
+            // {
+            //     window.alert(carList[i].textContent); 
+            // }
+
+            // for (var i = 0; i < carList.length; i++)
+            // {
+            //     if (carList[i].selected == true) 
+            //     {
+            //         document.getElementById("demo").innerHTML = carList[i].textContent; //This is to print the selected value
+            //     }
+            // }
+
+            // var item3 = document.getElementById("Car2");
+            // document.getElementById("myList").removeChild(item3);
+
+            //var newItem = document.createElement("option");
+            // newItem.textContent = "Camaro";
+            // document.getElementById("myList").replaceChild(newItem, Car2);
+
+            // newItem.textContent = "Camaro";
+            // document.getElementById("myList").insertBefore(newItem, Car2);
+
+            // var cars = document.getElementById("Car1");
+            // while (cars.id != "")  //This will show all the cars while the variable sea indiferente the ""
+            // {
+            //     window.alert(cars.textContent);
+            //     cars = cars.nextElementSibling;
+            // }
+        }
+    </script>
+</head>
+<body>
+    <button onclick = "MyList()">Click Here</button>
+    <ol id = "myList"><li id ="item1">Coffee</li><li id="item2">Tea</li><li id="item3">Water</li></ol> <!--I cannot write spaces between the items -->
+    <!-- <select id = "myList" size="5"><option id = "Car1">Mustang</option><option id = "Car2">Toyota</option><option id = "Car3">Mercedes-Benz</option><option id = "Car4">Bugatti</option><option id = "Car5">Lamborghini</option></select> -->
+    <p id = "demo"></p>
+</body>
+</html>

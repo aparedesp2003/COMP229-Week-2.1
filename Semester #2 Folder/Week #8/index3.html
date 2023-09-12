@@ -1,0 +1,22 @@
+<html>
+<header>
+<script>
+ function createItems() {
+  sessionStorage.test1 = "hello";
+  sessionStorage.test2 = "Jim";
+  sessionStorage.test3 = 358;
+  window.alert("The Items are created")
+  }
+  
+  function myFunction() {
+  var x = sessionStorage['test1'];
+  document.getElementById("demo").innerHTML = x;
+  }
+</script> </header>
+<body>
+<button onclick="createItems()">Create session storage items</button>
+<p>Click the button to get the name of the first session storage item:</p>
+<button onclick="myFunction()">Get item name</button>
+<p id="demo"></p>
+</body>
+</html>

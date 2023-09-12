@@ -1,0 +1,156 @@
+<html>
+    <header>
+        <script>
+            function LogicalOperators()
+            {
+                //Logical Expressions or (||) and (%%)
+                // var x = 10;
+                // var y = -3;
+                // if (x >= 11 && y < 0) //Using && both boolean expressions needs to be true.
+                // {
+                //     window.alert("The statement is true!");
+                // }
+                // else
+                // {
+                //     window.alert("The statement is false!");
+                // }
+
+                // var x = 10;
+                // var y = -3;
+                // if (x >= 11 || y < 0) //Using || just one boolean expressions needs to be true.
+                // {
+                //     window.alert("The statement is true!");
+                // }
+                // else
+                // {
+                //     window.alert("The statement is false!");
+                // }
+
+                // var x = 10;
+                // var y = -3;
+                // if (!(x >= 11 && y < 0)) 
+                // {
+                //     window.alert("The statement is true!");
+                // }
+                // else
+                // {
+                //     window.alert("The statement is false!");
+                // }
+
+                // var x = 1;
+                // var y = "1";
+                // if (x==y) //In this case the statement is true, because the language automatically convert the data type
+                // {
+                //     window.alert("The statement is true!");
+                // }
+                // else
+                // {
+                //     window.alert("The statement is false!");
+                // }
+
+                // var x = 1;
+                // var y = "1";
+                // if (x===y) //In this case is false, this sign means strictly equal (without conversition)
+                // {
+                //     window.alert("The statement is true!");
+                // }
+                // else
+                // {
+                //     window.alert("The statement is false!");
+                // }
+
+                // var x = 1;
+                // var y = "1";
+                // if (x!==y) //In this case is true, this sign means strictly not equal (without conversition)
+                // {
+                //     window.alert("The statement is true!");
+                // }
+                // else
+                // {
+                //     window.alert("The statement is false!");
+                // }
+
+                //-------------------------------------------------------------------------------
+
+                //Getting dates
+
+                //var today = new Date();
+
+                //var date = new Date (2023, 5, 23) //Date store the months from 0 to 11
+
+                // var today = new Date(2023, 5, 23);
+                // var month = today.getMonth();
+                // if (month == 5)
+                // {
+                //     window.alert("Today is the last day of may");
+                // }
+                // document.getElementById("demo").innerHTML = month;
+
+                // var today = new Date();
+                // var _day = today.getDate(); //MOnth day 0 - 30
+                // var day = today.getDay(); //Week days, 0 - 6
+                // var month = today.getMonth(); //Month # 0-11
+
+                // var result = month + " " + day + " " + _day;
+                // document.getElementById("demo").innerHTML = result;
+
+                // var today = new Date();
+                // var result ="ToTodaytring:" + today.toString();
+                // result += "<br>" + "ToLocalString:" + today.toLocaleDateString();
+                // result += "<br>" + "ToUTCString:" + today.toUTCString();
+                // result += "<br>" + "ToDateString:" + today.toDateString();
+
+                // document.getElementById("demo").innerHTML = result;
+
+                //var today = new Date();
+                // var x = "10";
+                // var result = typeof(x); //This resturn the data type of the variable
+
+                // document.getElementById("demo").innerHTML = result;
+
+                //----------------------------------------------------------------------
+
+                //Finding the errors.
+                //The best way to finf an error, is writing a consololog on the script an using the inspection mode in the console.
+                //Another way is using the breakpoints to find errors. Reserch more about breakpoints.
+
+                // var a = 10;
+                // var result = a/y;
+                // document.getElementById("demo").innerHTML = result;
+
+                // try {
+                // var v1 = parseFloat(prompt("Please enter the first value: "));
+                // var v2 = parseFloat(prompt("Please enter the second value: "));
+                // var result = v1 / v2;
+                // document.getElementById("demo").innerHTML = result;
+                // }
+                // catch (error)
+                // {
+                //     document.getElementById("demo").innerHTML = error;
+                // }
+
+                // var myArray = ["Andres", "Carlos", "Bruna", "Professor"];
+                // var str = " ";
+                // for (var i = 0; i > myArray; i++)
+                // {
+                //     str += myArray[i] + "<li>";
+                // }
+                // document.getElementById("demo").innerHTML = str;
+
+                const names = ["Andres", "Carlos", "Bruna", "Professor"];
+                var str = " ";
+
+                for (let index in names)
+                {
+                    str += "<li>" + names[index] + "</li>";
+                }
+                document.getElementById("demo").innerHTML = str;
+            }  
+
+        </script>
+    </header>
+    <body>
+        <button onclick = "LogicalOperators()"> Click here </button>
+        <p id = "demo"></p>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            let favorites = [];
+            function ZoomView(imageUrl) {
+                var zoomedView = document.getElementById('zoomedView');
+                zoomedView.innerHTML = `<img src="${imageUrl}" alt="Zoomed Image">`;
+                zoomedView.style.display = 'block';
+
+                const favoriteButton = document.createElement('button');
+                favoriteButton.textContent = 'Add to Favorites';
+                favoriteButton.onclick = () => addToFavorites(imageUrl);
+                zoomedView.appendChild(favoriteButton);
+            }
+    
+            function addToFavorites(imageUrl) {
+                if (favorites.length >= 5) {
+                    window.alert("You can only add 5 images to the favorite section. Please remove one.");
+                    return;
+                }
+                favorites.push(imageUrl);
+                renderFavorites();
+            }
+            
+            function renderFavorites() {
+                const favoritesArea = document.getElementById('favoritesArea');
+                favoritesArea.innerHTML = '<h2>Here are your favorite images:</h2>';
+
+                favorites.forEach(function(imageUrl) {
+                    const imageNode = document.createElement('img');
+                    imageNode.src = imageUrl;
+                    imageNode.alt = 'Favorite Image';
+                    imageNode.onclick = () => showRemoveButton(imageUrl);
+                    favoritesArea.appendChild(imageNode);
+                });
+            }
+
+            function showRemoveButton(imageUrl) {
+                const favoritesArea = document.getElementById('favoritesArea');
+                const imageNode = favoritesArea.querySelector(`img[src="${imageUrl}"]`);
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'remove-button';
+                removeButton.onclick = () => removeFromFavorites(imageUrl);
+
+                imageNode.parentNode.insertBefore(removeButton, imageNode.nextSibling);
+                imageNode.classList.add('selected-image');
+            }
+
+            function removeFromFavorites(imageUrl) {
+                const favoritesArea = document.getElementById('favoritesArea');
+                const imageNode = favoritesArea.querySelector(`img[src="${imageUrl}"]`);
+                const removeButton = imageNode.nextSibling;
+
+                imageNode.parentNode.removeChild(removeButton);
+                imageNode.classList.remove('selected-image');
+
+                favorites = favorites.filter(function(image) {
+                    return image !== imageUrl;
+                });
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <div class = "Image" onclick = "zoomView('Assignment#2/ChichenItza.png')">
+            <img src = "ChichenItza.png" alt = "Image#1" width = "200" height="200">
+        </div>
+
+        <div class = "Image" onclick = "zoomView('Assignment#2/coliseoRomano.jpg')">
+            <img src = "coliseoRomano.jpg" alt = "Image#2" width = "200" height="200">
+        </div>
+
+        <div class = "Image" onclick = "zoomView('Assignment#2/cristoRedentor.jpg')">
+            <img src = "cristoRedentor.jpg" alt = "Image#3" width = "200" height="200">
+        </div>
+
+        <div class = "Image" onclick = "zoomView('Assignment#2/machuPichu.jpg')">
+            <img src = "machuPichu.jpg" alt = "Image#4" width = "200" height="200">
+        </div>
+
+        <div class = "Image" onclick = "zoomView('Assignment#2/murallaChina.jpeg')">
+            <img src = "urallaChina.jpg" alt = "Image#5" width = "200" height="200">
+        </div>
+
+        <div class = "Image" onclick = "zoomView('Assignment#2/petra.jpg')">
+            <img src = "petra.jpg" alt = "Image#6" width = "200" height="200">
+        </div>
+
+        <div class = "Image" onclick = "zoomView('Assignment#2/tajMahal.jpg')">
+            <img src = "tajMahal.jpg" alt = "Image#7" width = "200" height="200">
+        </div>
+
+        <div class = "zoom-image" id = "zoomedView"></div>
+
+        <div class = "favoritesArea" id = "Favorites">
+            <h2>Here are your favorites images: </h2>
+        </div>
+    </body>
+</html>

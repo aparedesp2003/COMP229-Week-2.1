@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<link rel = "icon" href="centennial.ico">
+<title lang="en">Assigment #3</title>
+    <header>
+        <script>
+            let canvas;
+            let context;
+            let ballX = 50;
+            let ballY = 50;
+            let score = 0;
+            let timeSpeed = 7000;
+            let backgroundImg;
+            let soccerBallImg;
+            let interval;
+
+            // window.onload = function() 
+            // {
+            //     var canvas = document.getElementById("myCanvas");
+            //     var context = canvas.getContext("2d");
+
+            //     var image = new Image();
+            //     image.onload = function() {
+            //         context.drawImage(image, 0, 0);
+            //     };
+            //     image.src = "grassBackground.jpg";
+            // };
+
+            class MousePosition 
+            {
+                constructor(x, y)
+                {
+                    this.x = x;
+                    this.y = y;
+                }
+            }
+
+            let mousePosition_ = new MousePosition(0, 0);
+            document.addEventListener('DOMContentLoaded', createCanvas);
+
+            function createCanvas() 
+            {
+                canvas = document.getElementById('myCanvas');
+                context = canvas.getContext('2d');
+
+                // Load images and then draw canvas
+                Promise.all([
+                    loadImage('grassBackground.jpg'),
+                    loadImage('soccerBall.png')
+                ]).then(([loadedBgImage, loadedBallImage]) => {
+                    backgroundImg = loadedBgImage; // Assign to global variable
+                    soccerBallImg = loadedBallImage; // Assign to global variable
+                    drawCanvas();
+                    canvas.addEventListener("click", handleCanvasClick);
+                    startInterval(); // Start the initial interval
+                }).catch((error) => {
+                    console.error('Error loading images:', error);
+                });
+            }
+
+            function startInterval()
+            {
+                clearInterval(interval);
+                interval = setInterval(() => {
+                    updateBallPosition(soccerBallImg);
+                    redrawCanvas();
+                }, timeSpeed);
+            }
+
+            function loadImage(src) 
+            {
+                return new Promise((resolve, reject) => {
+                    let img = new Image();
+                    img.onload = () => resolve(img);
+                    img.onerror = reject;
+                    img.src = src;
+                });
+            }
+
+            function drawCanvas()
+            {
+                drawBackground();
+                drawBall();
+            }
+
+            function redrawCanvas() 
+            {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                drawBackground();
+                drawBall();
+            }
+
+            function drawBackground() 
+            {
+                context.drawImage(backgroundImg, 0, 0, 1000, 625);
+            }
+
+            function drawBall()
+            {
+                context.drawImage(soccerBallImg, ballX, ballY, 50, 50);
+            }
+
+            function updateBallPosition(soccerBallImg)
+            {
+                const canvasWidth = canvas.width;
+                const canvasHeight = canvas.height;
+                const ballWidth = 50;
+                const ballHeigth = 50;
+
+                ballX = Math.random() * (canvasWidth - ballWidth);
+                ballY = Math.random() * (canvasHeight - ballHeigth);
+            }
+
+            function handleCanvasClick(event)
+            {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                if(x >= ballX && x <= ballX + 50 && y >= ballY && y <= ballY + 50)
+                {
+                    incrementScore();
+                    updateBallPosition(soccerBallImg);
+                    redrawCanvas();
+                }
+            }
+
+            function incrementScore()
+            {
+                score = score + 1;
+                document.getElementById("ScoreCounter").innerHTML = "Score: " + score;
+                incrementSpeed();
+            }
+
+            function incrementSpeed()
+            {
+                if (timeSpeed > 500)
+                {
+                    timeSpeed = timeSpeed - 500;
+                    startInterval();
+                }
+            }
+
+            function ResetScore()
+            {
+                score = 0;
+                document.getElementById("ScoreCounter").innerHTML = "Score: " + score;
+            }
+
+            function ResetSpeed()
+            {
+                timeSpeed = 7000;
+                startInterval();
+            }
+
+        </script>
+        <style>
+            h1, h2 {
+                font-weight: bold;
+                text-align: center;
+                text-shadow: 5px 5px 5px rgb(0, 0, 0);
+            }
+            body 
+            {
+                background-color: grey;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+            table 
+            {
+                width: 800px;
+                border-collapse: collapse;
+                text-align: center;
+            }
+    
+            td 
+            {
+                padding: 5px;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            #myCanvas
+            {
+                border: 1px solid #000;
+                border-radius: 8px; /* Adjust the value as desired */
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+            }
+            #resetScoreButton, #resetSpeedButton, #ScoreCounter
+            {
+                padding: 10px 10px;
+                font-size: 16px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 4px;
+                margin-bottom: 10px;   
+            }
+
+            #resetScoreButton:hover, #resetSpeedButton:hover, #ScoreCounter:hover
+            {
+                background-color: #45a049;
+                text-align: center;
+            }
+        </style>
+    </header>
+    <body>
+        <h1>Assigment #3</h1>
+        <h2>Andres Paredes, Bruna Silva, Carlos Rosario</h2>
+        <h2>BallSmasher</h2>
+        <table>
+            <tr>
+                <td>
+                    <div id = "Score">
+                        <button id = "ScoreCounter"> Score: 0 </button>
+                    </div>
+                <td>
+                    <div id = "resetButton1">
+                        <button id = "resetScoreButton" onclick=" ResetScore()"> Reset Score </button>
+                    </div>
+                </td>
+                <td>
+                    <div id = "resetButton2">
+                        <button id = "resetSpeedButton" onclick = "ResetSpeed()"> Reset Speed </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id = "Canvas_">
+            <canvas id = "myCanvas" height="625" width="1000"></canvas>
+        </div>       
+    </body>
+</html>

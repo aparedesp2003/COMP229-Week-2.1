@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang>
+    <head>
+        <script>
+            //Example #1
+            // function myFunction()
+            // {
+            //     const url = new URL('https://stackabuse.com/search?fname=John&q=node&page=2&email=example@hotmail.com');
+            //     const searchParams = url.searchParams;
+            //     searchParams.get('q'); // 'node'
+            //     searchParams.get('page'); // '2'
+            //     searchParams.get('email'); // example@hotmail.com
+            //     document.getElementById("demo").innerHTML=searchParams.get('fname');
+            // }
+
+            //Example #2
+            // function myFunction()
+            // {
+            //     //Check Browser support
+            //     if (typeof(Storage) !== "undefined")
+            //     {
+            //         //Store
+            //         sessionStorage.setItem("lastname", "Paredes");
+            //         //Retrieve
+            //         document.getElementById("demo").innerHTML= sessionStorage.getItem("lastname");
+            //     }
+            //     else
+            //     {
+            //         document.getElementById("demo").innerHTML = "Sorry, your browser does not support Web Storage";
+            //         window.alert("Sorry, your browser does not support Web Storage...");
+            //     }
+            // }
+
+            //Example #3
+            // function createItems()
+            // {
+            //     sessionStorage.test1 = "hello";
+            //     sessionStorage.test2 = "Andres";
+            //     sessionStorage.test3 = 301297013;
+            //     window.alert("The Items are created")
+            // }
+            // function myFunction()
+            // {
+            //     var x = sessionStorage['test2'];
+            //     document.getElementById("demo").innerHTML = x;
+            // }
+
+            //Example #4
+            // function clickCounter()
+            // {
+            //     if (localStorage.clickCount)
+            //     {
+            //         localStorage.clickCount = Number(localStorage.clickCount)+1;
+            //     }
+            //     else
+            //     {
+            //         localStorage.clickCount = 1;
+            //     }
+            //     document.getElementById("demo").innerHTML = localStorage.clickCount;
+            // }
+
+            //Example #5
+            function setCookie(cname,cvalue,exdays) 
+            {
+                const d = new Date();
+                window.alert(d.getDate());
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+             }
+
+            function getCookie(cname) 
+            {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+                }
+                return "";
+            }
+
+            function checkCookie() {
+                let user = getCookie("username");
+                if (user != "") {
+                alert("Welcome again " + user);
+                } else {
+                user = prompt("Please enter your name:","");
+                if (user != "" && user != null) {
+                setCookie("username", user, 30);
+                }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Example #1 -->
+        <!-- <button onclick="myFunction()">Click Me</button>
+        <p id="demo"></p>  -->
+
+        <!-- Example #2 -->
+        <!-- <button onclick= "myFunction()">Click Me</button>
+        <p id = "demo"></p> -->
+
+        <!-- Example #3 -->
+        <!-- <button onclick = "createItems()">Create session storage items</button>
+        <p>Click the buttom to get the name of the first session storage item: </p>
+        <button onclick = "myFunction()">Get item name</button>
+        <p id = "demo"></p> -->
+
+        <!-- Example #4 -->
+        <!-- <p><button onclick = "clickCounter()" type = "button">Click Me!</button></p>
+        <p id = "demo"></p> -->
+
+        <!-- Example #5 -->
+        <body onload="checkCookie()"></body>
+
+    </body>
+</html>

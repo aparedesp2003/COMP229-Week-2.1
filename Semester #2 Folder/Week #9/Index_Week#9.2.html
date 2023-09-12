@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <body>
+    <p id='text'>Drag the text</p>
+     <script>
+     text.onmousedown = function(event) { //  start the process
+     // get ready to move: make an absolute and top z-index
+    //A z-index is a CSS property that controls overlapping HTML elements
+     text.style.position = 'absolute';
+     text.style.zIndex = 1000;
+     // move it from any existing parents directly to the body
+     // to position it relative to the body
+     document.body.append(text);
+     // and put this absolutely positioned text under the pointer
+     moveAt(event.pageX, event.pageY);
+     // centers the text on the coordinates (pageX, pageY)
+    
+     function moveAt(pageX, pageY) {
+     text.style.left = pageX - text.offsetWidth / 2 + 'px';
+     text.style.top = pageY - text.offsetHeight / 2 + 'px';
+     }
+
+    function onMouseMove(event) {
+     moveAt(event.pageX, event.pageY);
+    }
+     //  move the text on mousemove
+     document.addEventListener('mousemove', onMouseMove);
+     // drop the text, remove unneeded handlers
+     document.onmouseup = function() {
+     document.removeEventListener('mousemove', onMouseMove);
+     text.onmouseup = null;
+     };
+   };
+ </script>   
+</body> -->
+
+<script>
+    function allowDrop(ev)
+    {
+        ev.preventDefault();//Cancels the event if it is cancelable, 
+        //meaning that the default action that belongs to the event will not occur (the defualt Drop for div is false.
+    }
+    function drag(ev)
+    {
+        ev.dataTransfer.setData("ItemID", ev.target.id);
+    }
+    function drop(ev)
+    {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("ItemID");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+<body>
+    <p>Drag the image into the rectangle: </p>
+    <div ondrop = "drop(event)" ondragover="allowDrop(event)" style="width: 400px; height: 400px;padding: 10px;border: 1px solid #aaaaaa;"></div>
+    <br>
+    <img id="drag1" src="barcelonaLogo.png" draggable="true" ondragstart="drag(event)" width="335" height="335">
+</body>
+</html>
